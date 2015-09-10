@@ -26,14 +26,17 @@
         var div, icon, options, pin_path;
         div = (oldIcon && oldIcon.tagName === "DIV" ? oldIcon : document.createElement("div"));
         options = this.options;
-        if (options.icon) {
-          icon = this._createInner();
-        }
+        icon = options.icon ? this._createInner() : (options.iconText ? this._textInner() : '');
         pin_path = L.VectorMarkers.MAP_PIN;
         div.innerHTML = '<svg width="32px" height="52px" viewBox="0 0 32 52" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' + '<path d="' + pin_path + '" fill="' + options.markerColor + '"></path>' + icon + '</svg>';
         this._setIconStyles(div, "icon");
         this._setIconStyles(div, "icon-" + options.markerColor);
         return div;
+      },
+      _textInner: function() {
+        var options;
+        options = this.options;
+        return "<span>" + options.iconText + "</span>";
       },
       _createInner: function() {
         var iconClass, iconColorClass, iconColorStyle, iconSpinClass, options;

@@ -41,7 +41,7 @@
       div = (if (oldIcon and oldIcon.tagName is "DIV") then oldIcon else document.createElement("div"))
       options = @options
 
-      icon = @_createInner()  if options.icon
+      icon = if options.icon then @_createInner() else (if options.iconText then @_textInner() else '')
 
       pin_path = L.VectorMarkers.MAP_PIN
 
@@ -52,6 +52,10 @@
       @_setIconStyles div, "icon"
       @_setIconStyles div, "icon-" + options.markerColor
       div
+
+    _textInner: ->
+    	options = @options
+    	"<span>" + options.iconText + "</span>"
 
     _createInner: ->
       iconClass = undefined

@@ -1,7 +1,7 @@
 /*
 Author: Mathias Schneider
 License: MIT
-Version: 1.0
+Version: 0.0.3
 */
 /* Marker setup */
 .vector-marker {
@@ -50,6 +50,17 @@ Version: 1.0
   font-size: 14px;
 }
 
+.vector-marker span {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 32px;
+  color: #fff;
+  margin: auto;
+  display: inline-block;
+  font-size: 12px;
+}
+
 .vector-marker i.maki-icon {
   width: 24px;
   left: 4px;
@@ -59,5 +70,3 @@ Version: 1.0
 .vector-marker .icon-white {
   color: #fff;
 }
-
-/*# sourceMappingURL=Leaflet.vector-markers.css.map */
